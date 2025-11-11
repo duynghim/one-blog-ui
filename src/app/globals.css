@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a; /* Light scheme default text */
 }
 
 @theme inline {
@@ -24,4 +24,72 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* Force dark scheme backgrounds via Mantine color scheme attribute */
+html[data-mantine-color-scheme='dark'] {
+  --background: #090d1f;
+  --foreground: #ededed; /* keeps strong contrast on very dark background */
+}
+
+html[data-mantine-color-scheme='dark'] body {
+  background: #090d1f;
+  color: var(--foreground);
+}
+
+/* Common component surfaces in dark scheme */
+html[data-mantine-color-scheme='dark'] .mantine-Container-root,
+html[data-mantine-color-scheme='dark'] .mantine-Paper-root,
+html[data-mantine-color-scheme='dark'] .mantine-Card-root,
+html[data-mantine-color-scheme='dark'] .mantine-Modal-content,
+html[data-mantine-color-scheme='dark'] .mantine-Drawer-content,
+html[data-mantine-color-scheme='dark'] .mantine-Menu-dropdown,
+html[data-mantine-color-scheme='dark'] .mantine-AppShell-navbar,
+html[data-mantine-color-scheme='dark'] .mantine-AppShell-header {
+  background-color: #090d1f;
+}
+
+/* Subtle borders to preserve hierarchy without harming contrast */
+html[data-mantine-color-scheme='dark'] .mantine-Card-root,
+html[data-mantine-color-scheme='dark'] .mantine-Paper-root,
+html[data-mantine-color-scheme='dark'] .mantine-Modal-content,
+html[data-mantine-color-scheme='dark'] .mantine-Menu-dropdown {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Header links and theme icons color/visibility */
+html[data-mantine-color-scheme='dark'] .header-link { color: #ffffff; }
+html[data-mantine-color-scheme='light'] .header-link { color: #1a1a1a; }
+
+/* Light scheme: universal text color for accessibility */
+html[data-mantine-color-scheme='light'] {
+  --mantine-color-text: #1a1a1a;
+}
+
+html[data-mantine-color-scheme='light'] body,
+html[data-mantine-color-scheme='light'] h1,
+html[data-mantine-color-scheme='light'] h2,
+html[data-mantine-color-scheme='light'] h3,
+html[data-mantine-color-scheme='light'] h4,
+html[data-mantine-color-scheme='light'] h5,
+html[data-mantine-color-scheme='light'] h6,
+html[data-mantine-color-scheme='light'] p,
+html[data-mantine-color-scheme='light'] a,
+html[data-mantine-color-scheme='light'] label,
+html[data-mantine-color-scheme='light'] .mantine-Text-root,
+html[data-mantine-color-scheme='light'] .mantine-Title-root,
+html[data-mantine-color-scheme='light'] .mantine-InputWrapper-label,
+html[data-mantine-color-scheme='light'] .mantine-NavLink-root,
+html[data-mantine-color-scheme='light'] .mantine-Menu-item {
+  color: #1a1a1a;
+}
+
+html[data-mantine-color-scheme='dark'] .theme-icon--light { display: none; }
+html[data-mantine-color-scheme='light'] .theme-icon--dark { display: none; }
+
+/* Increase underline spacing and thickness for header links */
+.header-link {
+  text-underline-offset: 0.2em; /* adds vertical space between text and underline */
+  text-decoration-thickness: 2px; /* makes underline a bit thicker for readability */
+  text-decoration-skip-ink: auto; /* keeps underline clear around descenders */
 }

@@ -9,13 +9,14 @@ import {
   mantineHtmlProps,
 } from "@mantine/core";
 import React from "react";
+import { Header } from "@/components";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const plexMono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700'],
-  variable: '--font-plex-mono',
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  variable: "--font-plex-mono",
 });
 
 export const metadata: Metadata = {
@@ -31,11 +32,14 @@ export default function RootLayout({
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
-        <title>DN Note</title>
+        <title>DN Blog</title>
         <ColorSchemeScript />
       </head>
       <body className={`${inter.variable} ${plexMono.variable} antialiased`}>
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider>
+          <Header />
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );
