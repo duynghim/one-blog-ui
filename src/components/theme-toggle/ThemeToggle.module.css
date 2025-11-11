@@ -3,22 +3,12 @@
     height: 22px;
 }
 
-.dark {
-    @mixin dark {
-        display: none;
-    }
-
-    @mixin light {
-        display: block;
-    }
+.light {
+  @mixin light { display: block; }
+  @mixin dark { display: none; }
 }
 
-.light {
-    @mixin light {
-        display: none;
-    }
-
-    @mixin dark {
-        display: block;
-    }
+.dark {
+  @mixin dark { display: block; }
+  @mixin light { display: none; }
 }

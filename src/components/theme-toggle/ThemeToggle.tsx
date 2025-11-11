@@ -4,7 +4,7 @@ import { JSX, useEffect, useState } from "react";
 import { ActionIcon, useMantineColorScheme } from "@mantine/core";
 import { IconMoon, IconSun } from "@tabler/icons-react";
 import cx from 'clsx';
-import classes from "*.module.css";
+import classes from "./ThemeToggle.module.css";
 
 function ThemeToggle(): JSX.Element {
   const { colorScheme, setColorScheme } = useMantineColorScheme();
@@ -23,7 +23,6 @@ function ThemeToggle(): JSX.Element {
       aria-label="Toggle color scheme"
       aria-pressed={mounted ? colorScheme === "dark" : undefined}
       onClick={handleToggleTheme}
-      style={{ minWidth: 48, minHeight: 48 }}
     >
       <IconSun className={cx(classes.icon, classes.light)} stroke={1.5} />
       <IconMoon className={cx(classes.icon, classes.dark)} stroke={1.5} />
